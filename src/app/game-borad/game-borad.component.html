@@ -1,0 +1,12 @@
+<div>
+    <button (click)="newGame()">New Game</button>
+</div>
+<div *ngIf="current_player">
+    Current Player is 
+    <cell [cellSize]="cellSize" [margin]="margeOfCell" [cellCode]="current_player"></cell>
+</div>
+<div  [style.width]="widthOfGame + 'px'" [style.height]="heightOfGame + 'px'" class="gameBoard">
+    <cell *ngFor="let elem of size42; let i=index " [cellSize]="cellSize" [margin]="margeOfCell" [cellCode]="gameData[intDevision(i,7)][i%7]" 
+           (click)="playInThisCol(i%7)"></cell>
+    
+</div>
